@@ -5,8 +5,8 @@ import time
 
 i=0
 
-dest_archivo = "registro.xlsx"
-if os.path.isfile(dest_archivo):
+dest_archivo_xlsx = "registro.xlsx"
+if os.path.isfile(dest_archivo_xlsx):
     libro = load_workbook("registro.xlsx")
 else:
     libro = Workbook()
@@ -90,7 +90,7 @@ def confirmacion(i,x):
 
 while True: 
 
-    dest_archivo2 = open("registro.txt","a")
+    dest_archivo_txt = open("registro.txt","a")
     fecha_ingreso = time.asctime()
     fecha_ingreso = str(fecha_ingreso)
    
@@ -100,8 +100,8 @@ while True:
    
     log_ingreso = "IN  " + fecha_ingreso + " encargado " + encargado + "\n" 
     
-    dest_archivo2.write(log_ingreso)
-    dest_archivo2.close
+    dest_archivo_txt.write(log_ingreso)
+    dest_archivo_txt.close
     
     menu()
          
@@ -161,17 +161,17 @@ while True:
     if opcion == 2:
 
         i = str(i)
-        dest_archivo2 = open("registro.txt","a")
+        dest_archivo_txt = open("registro.txt","a")
         fecha_salida =  time.asctime()
         fecha_salida =  str(fecha_salida)
         log_salida = "OUT " + fecha_salida + " encargado " + encargado + " $ " + i + "\n" 
-        dest_archivo2.write(log_salida)
-        dest_archivo2.close
+        dest_archivo_txt.write(log_salida)
+        dest_archivo_txt.close
         
         separador = "##############################################################################################" + "\n" 
         
-        dest_archivo2.write(separador)
-        dest_archivo2.close
+        dest_archivo_txt.write(separador)
+        dest_archivo_txt.close
 
         i = 0
         i = int(i)
@@ -183,15 +183,15 @@ while True:
     elif opcion == 3:   
         
         i = str(i)
-        dest_archivo2 = open("registro.txt","a")
+        dest_archivo_txt = open("registro.txt","a")
         fecha_salida =  time.asctime()
         fecha_salida =  str(fecha_salida)
         log_salida = fecha_salida + " encargado " + encargado  + " $ " + i +"\n" 
-        dest_archivo2.write(log_salida)
+        dest_archivo_txt.write(log_salida)
         
         separador = "##############################################################################################" + "\n"
-        dest_archivo2.write(separador)
-        dest_archivo2.close
+        dest_archivo_txt.write(separador)
+        dest_archivo_txt.close
         print("adios", encargado)
 
         i = 0
