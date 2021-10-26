@@ -52,7 +52,7 @@ def vuelto_total(abona,total):
 
 
 def menu(): 
- print("McDowell´s\nRecuerda que siempre hay que recibir al cliente con una sonrisa :)\n\n1- Ingreso de nuevo pedido\n2- Cambio de turno\n3-Apagar sistema")
+ print("McDowell´s\nRecuerda que siempre hay que recibir al cliente con una sonrisa :)\n\n1- Ingreso de nuevo pedido\n2- Cambio de turno\n3- Apagar sistema")
 
 
 def borrar_pantalla():
