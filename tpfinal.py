@@ -2,6 +2,7 @@ import os
 import platform
 from openpyxl import Workbook,load_workbook
 import time
+from colorama import Fore, Back, Style
 
 i=0
 
@@ -15,12 +16,8 @@ else:
     hoja.append(["cliente", "fecha", "combo S","combo D","combo T","flurby","total"])
     libro.save("registro.xlsx")
 
-
-
 hoja = libro.active
 hoja.title = "registro"
-
-
 
 def verificar(dato):
     while dato == "":
@@ -28,16 +25,12 @@ def verificar(dato):
         dato = input("Ingrese nuevamente: ")
     return dato
  
-
-
 def convertir(valor):
     while valor.isdecimal() == False:
         print("Error, solo numeros enteros")
         valor = input("Ingrese nuevamente: ")
     valor = int(valor)
     return valor
-
-
 
 def vuelto_total(abona,total):    
     while abona<total: 
@@ -49,11 +42,8 @@ def vuelto_total(abona,total):
         total_total = abona - total
         print("vuelto $", total_total)
        
-
-
 def menu(): 
- print("McDowell´s\nRecuerda que siempre hay que recibir al cliente con una sonrisa :)\n\n1- Ingreso de nuevo pedido\n2- Cambio de turno\n3- Apagar sistema")
-
+ print(Fore.YELLOW + "McDowell´s" + Style.RESET_ALL + "\nRecuerda que siempre hay que recibir al cliente con una sonrisa :)\n\n1- Ingreso de nuevo pedido\n2- Cambio de turno\n3- Apagar sistema")
 
 def borrar_pantalla():
     sistema = platform.system()
@@ -62,39 +52,32 @@ def borrar_pantalla():
     else:
         os.system("clear")
 
-
-
 def confirmacion(i,x): 
-    print("¿Desea confirmar el pedido?")
+    print(Fore.BLACK + Back.RED + "¿Desea confirmar el pedido?" + Style.RESET_ALL)
     print("ingrese SI/NO ")
     sino = input(">>>")
     if sino == "S" or sino == "SI" or sino == "Si" or sino == "si" or sino == "sI" or sino == "s":
-        print("PEDIDO CONFIRMADO")
+        print(Fore.GREEN +"PEDIDO CONFIRMADO" + Style.RESET_ALL)
         hoja.append([cliente, time.asctime(), s,d,t,f,total_total])
         libro.save("registro.xlsx")
         i = i + x
         print(i)
         return i
     elif sino == "N" or sino == "NO" or sino == "No" or sino == "no" or sino == "nO" or sino == "n":
-        print("PEDIDO CANCELADO")
+        print(Fore.RED + "PEDIDO CANCELADO" + Style.RESET_ALL)
         i = i 
         return i
     else:   
         print("error en la opcion")
         confirmacion(i,x)
         return i
-    
-    
-
 #######################################################################################################################################################################################
-
 while True: 
-
     dest_archivo_txt = open("registro.txt","a")
     fecha_ingreso = time.asctime()
     fecha_ingreso = str(fecha_ingreso)
    
-    print("Bienvenido a McDowell´s ")
+    print("Bienvenido a " + Fore.YELLOW + "McDowell´s " + Style.RESET_ALL)
     encargado = input("Ingrese su nombre encargad@: ")
     encargado = verificar(encargado)
    
@@ -110,7 +93,6 @@ while True:
     opcion = convertir(opcion)
 
     while opcion == 1:  
-
         s = input("Ingrese cantidad Combo S: ")
         s = verificar(s)
         s = convertir(s)
@@ -145,21 +127,16 @@ while True:
 
         vuelto = vuelto_total(abona,total_total)
         
-        
         i = confirmacion(i ,total_total)  
 
-        
         menu()
         opcion = input(">>> ")
         opcion = verificar(opcion)
         opcion = convertir(opcion)
 
-       
         borrar_pantalla()
 
-        
     if opcion == 2:
-
         i = str(i)
         dest_archivo_txt = open("registro.txt","a")
         fecha_salida =  time.asctime()
@@ -190,6 +167,7 @@ while True:
         dest_archivo_txt.write(log_salida)
         
         separador = "##############################################################################################" + "\n"
+        
         dest_archivo_txt.write(separador)
         dest_archivo_txt.close
         print("adios", encargado)
