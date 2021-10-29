@@ -34,13 +34,13 @@ def convertir(valor):
 
 def vuelto_total(abona,total):    
     while abona<total: 
-        print("error en la suma, vuelva a ingresarla")
+        print("Error en la suma, vuelva a ingresarla")
         abona = input(">>>")
         abona = verificar(abona)
         abona = convertir(abona)
     else:   
         total_total = abona - total
-        print("vuelto $", total_total)
+        print("Vuelto $", total_total)
        
 def menu(): 
  print(Fore.YELLOW + "McDowell´s" + Style.RESET_ALL + "\nRecuerda que siempre hay que recibir al cliente con una sonrisa :)\n\n1- Ingreso de nuevo pedido\n2- Cambio de turno\n3- Apagar sistema")
@@ -68,7 +68,7 @@ def confirmacion(i,x):
         i = i 
         return i
     else:   
-        print("error en la opcion")
+        print("Error en la opcion")
         confirmacion(i,x)
         return i
 #######################################################################################################################################################################################
@@ -196,7 +196,7 @@ while True:
         
         dest_archivo_txt.write(separador)
         dest_archivo_txt.close
-        print("adios", encargado)
+        print("Adios", encargado)
 
         i = 0
         i = int(i)
