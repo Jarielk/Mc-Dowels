@@ -133,6 +133,7 @@ while True:
         f = convertir(f)
 
         cliente = input("ingrese el nombre del cliente: ")
+        cliente = verificar(cliente)
 
         combo_simple   = 650
         combo_doble    = 700
